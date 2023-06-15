@@ -1,0 +1,24 @@
+.wrapper{
+    overscroll-behavior-y: contain;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    perspective-origin: right top;
+    top: var(--margin-top-container);
+    bottom: 0px;
+    width: var(--width-side-bar);
+    background: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 99;
+    padding: 20px 0 26px;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    margin-top: 1px;
+    flex-direction: column;
+    overflow: hidden;
+    transition: overflow 1s;
+    &:hover{
+        overflow-y: scroll;
+
+    }
+}
