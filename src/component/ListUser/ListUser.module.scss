@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding: 8px 4px;
   margin-top: 8px;
   border-bottom: 1px solid var(--border-color);
 }
@@ -74,4 +74,5 @@
     line-height: 20px;
     color: var(--primary);
     padding: 12px 8px;
+    cursor: pointer;
 }

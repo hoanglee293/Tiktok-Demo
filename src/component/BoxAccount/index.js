@@ -5,13 +5,14 @@ import styles from "./BoxAccount.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import AvatarDefault from '../../assets/images/avatar-default.jpeg'
 
 function BoxAccount({ data }) {
   const cx = classNames.bind(styles);
   return (
     <Link to={`/@${data.nickname}`} className={cx("wrapper")}>
       <img
-        src={data.avatar}
+        src={data?.avatar === "https://files.fullstack.edu.vn/f8-tiktok/" ? AvatarDefault : data?.avatar}
         alt=""
         className={cx("avatar")}
         height={40}

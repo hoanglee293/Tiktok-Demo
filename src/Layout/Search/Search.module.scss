@@ -1,6 +1,7 @@
 .wrapper {
   position: relative;
   width: 48%;
+  max-width: 500px;
   padding: 0 8px;
   .search-result{
     padding: 0 8px;
@@ -67,7 +68,7 @@
   }
   .close-icon{
     position: absolute;
-    right: 11.1%;
+    right: 53px;
     cursor: pointer;
     background: rgb(241 241 242);
     z-index: 100;

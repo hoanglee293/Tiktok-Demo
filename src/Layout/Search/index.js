@@ -7,7 +7,7 @@ import images from "../../assets/images";
 import { ReactComponent as SearchIcon } from "../../assets/images/search-icon.svg";
 import Tippy from "@tippyjs/react/headless";
 import { BoxAccount, Popper as PopperWrapper } from "../../component";
-import * as searchService from "../../service/searchService";
+import * as searchService from "../../services/searchService";
 
 const cx = classNames.bind(styles);
 function Search() {

@@ -4,10 +4,12 @@
   //color --------
   --primary: rgb(255, 59, 92);
   --text-color: #333;
+  --text-black-line: rgba(22, 24, 35, 1);
   --white: rgb(255, 255, 255);
   --dark-color: #333;
   --light-color: #fff;
   --bluelight-color: rgb(43, 93, 185);
+  --bg-gray: rgba(22, 24, 35, 0.06);
   --gray-color: rgba(22, 24, 35, .75);
   --gray-hover-color: rgba(22, 24, 35, 0.03);
 
@@ -100,4 +102,6 @@ body {
 .check {
   font-size: 1.4rem;
   color: #20d5ec;
+  background: var(--white);
+  border-radius: 10px;
 }

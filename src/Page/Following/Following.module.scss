@@ -1,0 +1,75 @@
+.wrapper{
+    width: 100%;
+    max-width: 730px;
+    text-align: center;
+}
+.list-item{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 26px;
+    li{
+        list-style: none;
+        flex-basis: 31%;
+        max-width: 226px;
+        height: 302px;
+        border-radius: 10px;
+        position: relative;
+        color: var(--white);
+        video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            z-index: 101;
+            position: relative;
+        }
+        .img-position{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            z-index: 100;
+        }
+        .info{
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            left: 0;
+            z-index: 102;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .avatar{
+                width: 48px;
+                height: 48px;
+                border-radius: 50px;
+                margin-bottom: 15px;
+                img{
+                    width: 100%;
+                    border-radius: 50px;
+                    object-fit: cover;
+                }
+            }
+            .nickname{
+                font-family: ProximaNova,Arial,Tahoma,sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 25px;
+            }
+            .id_name{
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 9px;
+            }
+            button{
+                width: 164px;
+                height: 37px;
+            }
+        }
+    }
+}

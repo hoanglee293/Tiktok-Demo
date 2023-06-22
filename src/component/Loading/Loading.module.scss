@@ -1,0 +1,102 @@
+.spinner {
+    --animation-duration: 0.9s;
+    --circle-diameter: 17.5px;
+    --circle-scale-percent: 0.2;
+    align-items: center;
+    display: inline-flex;
+    left: calc(var(--circle-diameter) * -1);
+    pointer-events: none;
+    position: relative;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    width: 34px;
+    z-index: 1;
+  
+    &::before {
+      -webkit-animation-duration: 0.9s;
+      animation-duration: 0.9s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-name: TiktokLoading_revolve__PCAP3;
+      animation-name: TiktokLoading_revolve__PCAP3;
+      -webkit-animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in-out;
+      border-radius: 50%;
+      content: " ";
+      display: table-cell;
+      height: 16.5px;
+      mix-blend-mode: darken;
+      position: absolute;
+      width: 16.5px;
+      background-color: #4de8f4;
+    }
+    &::after {
+      animation-delay: calc(0.9s/-2);
+      -webkit-animation-duration: 0.9s;
+      animation-duration: 0.9s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-name: TiktokLoading_revolve__PCAP3;
+      animation-name: TiktokLoading_revolve__PCAP3;
+      -webkit-animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in-out;
+      border-radius: 50%;
+      content: " ";
+      display: table-cell;
+      height: 16.5px;
+      mix-blend-mode: darken;
+      position: absolute;
+      background: #fd3e3e;
+      width: 16.5px;
+    }
+  }
+  @-webkit-keyframes TiktokLoading_revolve__PCAP3 {
+      0% {
+          left: 0
+      }
+  
+      25% {
+          -webkit-transform: scale(calc(1 + var(--circle-scale-percent)));
+          transform: scale(calc(1 + var(--circle-scale-percent)))
+      }
+  
+      50% {
+          left: var(--circle-diameter)
+      }
+  
+      75% {
+          -webkit-transform: scale(calc(1 - var(--circle-scale-percent)));
+          transform: scale(calc(1 - var(--circle-scale-percent)))
+      }
+  
+      to {
+          left: 0
+      }
+  }
+  
+  @keyframes TiktokLoading_revolve__PCAP3 {
+      0% {
+          left: 0
+      }
+  
+      25% {
+          -webkit-transform: scale(calc(1 + var(--circle-scale-percent)));
+          transform: scale(calc(1 + var(--circle-scale-percent)))
+      }
+  
+      50% {
+          left: var(--circle-diameter)
+      }
+  
+      75% {
+          -webkit-transform: scale(calc(1 - var(--circle-scale-percent)));
+          transform: scale(calc(1 - var(--circle-scale-percent)))
+      }
+  
+      to {
+          left: 0
+      }
+  }
+  

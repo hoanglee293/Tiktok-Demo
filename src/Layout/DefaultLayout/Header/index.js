@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleQuestion,
   faEarthAsia,
-  faEllipsisVertical,
   faGear,
   faKeyboard,
   faUser,
   faBookmark,
   faCoins,
-  faArrowRightFromBracket
+  faArrowRightFromBracket,
+  faEllipsisVertical
 } from "@fortawesome/free-solid-svg-icons";
 //
 import config from "../../../config";
@@ -23,6 +23,8 @@ import Button from "../../../component/Button";
 import MenuBox from "../../Menu";
 import { LogoSvg, MessageSvg, Notify } from "../../../assets/svg";
 import LoginModal from "../../../component/ModalAuth";
+import AvtDefault from "../../../assets/images/avatar-default.jpeg";
+
 
 const items = [
   {
@@ -70,7 +72,7 @@ const items = [
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
     title: "Feedback and Help",
-    to: "feedback",
+    to: "/",
   },
   {
     icon: <FontAwesomeIcon icon={faKeyboard} />,
@@ -114,14 +116,17 @@ const cx = classNames.bind(styles);
 
 function Header() {
   const [auth, setAuth] = useState(false)
-  const avtUrl = "https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/da29d4c32fd0b34891fcaac913e29cd4~c5_100x100.jpeg?x-expires=1686664800&x-signature=nlSIHnpKpnzcrJ%2FsapuTzvMeT10%3D"
+  const [isLogin, setIsLogin] = useState(false)
+  const avtUrl = ""
   
   return (
     <header>
       <div className={cx("wrapper")}>
-        <Link to={config.routes.home} className={cx("logo")}>
-          <LogoSvg />
-        </Link>
+        <div className={cx("logo")}>
+          <Link to={config.routes.home}>
+            <LogoSvg />
+          </Link>
+        </div>
         <Search />
         <div className={cx("setup")}>
           {auth ? (
@@ -131,12 +136,16 @@ function Header() {
               </Button>
               <Button basic>
                 <Tippy content="Inbox">
-                  <span><MessageSvg /></span>
+                  <span>
+                    <MessageSvg />
+                  </span>
                 </Tippy>
               </Button>
               <Button basic>
                 <Tippy content="Message">
-                  <span><Notify /></span>
+                  <span>
+                    <Notify />
+                  </span>
                 </Tippy>
               </Button>
             </>
@@ -145,32 +154,34 @@ function Header() {
               <Button darktext to="/">
                 + Upload
               </Button>
-              <Button primary onClick={()=> setAuth(true)}>
+              <Button primary onClick={() => setIsLogin(true)}>
                 Log in
               </Button>
             </>
           )}
-          <MenuBox items={!auth ? userMenu : items} onChange={handleChange}>
+          <MenuBox items={auth ? userMenu : items} onChange={handleChange}>
             {auth ? (
               <div className={cx("profile-item")}>
-                {avtUrl ? (<img
-                  src={avtUrl}
-                  alt=""
-                />) :(
-                  <div className={cx('default-avt')}>H</div>
+                {avtUrl ? (
+                  <img src={AvtDefault} alt="" />
+                ) : (
+                  <div className={cx("default-avt")}>H</div>
                 )}
               </div>
             ) : (
               <FontAwesomeIcon icon={faEllipsisVertical} />
             )}
           </MenuBox>
-          {!auth && (
-            <div className={cx("overlay")}>
-              <LoginModal />
-            </div>
-          )}
         </div>
       </div>
+      {isLogin && (
+        <>
+          <div className={cx("overlay")} onClick={() => setIsLogin(false)}>
+            &ensp;
+          </div>
+          <LoginModal isAuth={setAuth} />
+        </>
+      )}
     </header>
   );
 }

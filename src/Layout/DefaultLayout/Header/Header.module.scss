@@ -1,70 +1,71 @@
-header{
+header {
+  width: 100%;
+  top: 0;
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+  background: var(--white);
+}
+.wrapper {
+  height: var(--default-layout-header-height);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  border-bottom: 1px solid var(--border-color);
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  padding-right: 24px;
+  padding-left: 16px;
+}
+.setup {
+  display: flex;
+  gap: 16px;
+}
+.logo {
+  min-width: 300px;
+  margin-top: 5px;
+}
+.profile-item {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;
+  background: center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  & img {
     width: 100%;
-    top: 0;
-    position: fixed;
-    left: 0;
-    z-index: 1000;
-    background: var(--white);
+    height: auto;
+  }
 }
-.wrapper{
-    height: var(--default-layout-header-height);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: space-around;
-    -ms-flex-pack: space-around;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
-    border-bottom: 1px solid var(--border-color);
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
-    padding-right: 24px;
-    padding-left: 16px;
+.default-avt {
+  background: rgb(194, 158, 39);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.setup{
-    display: flex;
-    gap: 16px;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgb(50 46 46 / 55%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.logo{
-    min-width: 300px;
-    margin-top: 5px;
-}
-.profile-item{
-    position: relative;
-    width: 32px;
-    height: 32px;
-    margin-left: 5px;
-    background: center no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    & img{
-        width: 100%;
-        height: auto;
-    }
-}
-.default-avt{
-    background: rgb(194, 158, 39);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgb(50 46 46 / 55%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+

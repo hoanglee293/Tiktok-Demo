@@ -6,13 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tippy from "@tippyjs/react/headless";
 import { Link } from "react-router-dom";
 import ModalPreview from "./ModalPreview";
+import AvatarDefault from "../../assets/images/avatar-default.jpeg"
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccount() {
-  const renderPreview = (props) => (
+function SuggestedAccount({data}) {
+  const renderPreview = (props) => ( 
     <div className={cx("preview")} tabIndex={-1} {...props}>
-      <ModalPreview />
+      <ModalPreview data={data}/>
     </div>
   );
   return (
@@ -27,15 +28,15 @@ function SuggestedAccount() {
       >
         <Link to={"/"} className={cx("list-item")}>
           <img
-            src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1686398400&x-signature=GAChPbRzOzO5zp19Yti%2F6M9FJ2E%3D"
+            src={data?.avatar === "https://files.fullstack.edu.vn/f8-tiktok/" ? AvatarDefault : data?.avatar}
             alt=""
           />
           <div className={cx("name")}>
             <div className={cx("name-id")}>
-              <h4>theanh28entertainment</h4>
-              <FontAwesomeIcon icon={faCheckCircle} className={cx("check")} />
+              <h4>{data.nickname}</h4>&ensp;
+              {!!data?.tick && <FontAwesomeIcon icon={faCheckCircle} className={cx("check")} />}
             </div>
-            <span>Theanh28 Entertainment</span>
+            <span>{`${data?.first_name} ${data?.last_name}`}</span>
           </div>
         </Link>
       </Tippy>

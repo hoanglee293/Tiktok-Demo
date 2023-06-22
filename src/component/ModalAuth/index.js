@@ -6,53 +6,65 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleAlt, faQrcode, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FaceBookSvg, GoogleSvg, InstagramSvg, KakaotalkSvg, LineSvg } from "../../assets/svg";
 
-function LoginModal() {
+function LoginModal({isAuth}) {
   const [auth, setAuth] = useState(false)
+  const [login, setLogin] = useState()
   const cx = classNames.bind(styles);
+  isAuth = login;
+  console.log(isAuth)
   const listBtn = [
     {
       name: "Use QR code",
-      icon: <FontAwesomeIcon icon={faQrcode} />
+      icon: <FontAwesomeIcon icon={faQrcode} />,
+      action: true
       
     },
     {
       name: "Use phone / email / username",
-      icon: <FontAwesomeIcon icon={faUser} />
+      icon: <FontAwesomeIcon icon={faUser} />,
+      action: true
       
     },
     {
       name: "Continue with Facebook",
-      icon: <FaceBookSvg />
+      icon: <FaceBookSvg />,
+      action: false
       
     },
     {
       name: "Continue with Twitter",
-      icon: <GoogleSvg />
+      icon: <GoogleSvg />,
+      action: false
       
     },
     {
       name: "Continue with Twitter",
-      icon: <GoogleSvg />
+      icon: <GoogleSvg />,
+      action: false
       
     },
     {
       name: "Continue with LINE",
-      icon: <LineSvg />
+      icon: <LineSvg />,
+      action: false
       
     },
     {
       name: "Continue with Kakaotalk",
-      icon: <KakaotalkSvg />
+      icon: <KakaotalkSvg />,
+      action: false
       
     },
     {
       name: "Continue with Apple",
-      icon: <FontAwesomeIcon icon={faAppleAlt} />
+      icon: <FontAwesomeIcon icon={faAppleAlt} />,
+      action: false
       
     },
     {
       name: "Continue with Instagram",
-      icon: <InstagramSvg />
+      icon: <InstagramSvg />,
+      action: false
       
     },
   ]
@@ -63,7 +75,7 @@ function LoginModal() {
           <h3>Log in to TikTok</h3>
           <div className={cx("list-btn")}>
             {listBtn.map((item, index) => (
-              <Button key={index} btnLogin leftIcon={item.icon}>
+              <Button key={index} btnLogin leftIcon={item.icon} onClick={()=> setLogin(item.action) }>
                 {item.name}
               </Button>
             ))}

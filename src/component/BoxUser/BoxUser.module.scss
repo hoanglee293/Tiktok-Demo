@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   max-width: 692px;
-  button{
+  button {
     margin-top: 10px;
   }
   padding-bottom: 15px;
@@ -23,6 +23,7 @@
     line-height: 25px;
     display: inline-block;
     margin-right: 4px;
+    cursor: pointer;
   }
   span {
     line-height: 29px;
@@ -40,7 +41,6 @@
   margin-top: 4px;
   font-feature-settings: "tnum";
   position: relative;
-  overflow: hidden;
   color: rgb(255, 255, 255);
   white-space: nowrap;
   text-align: center;
@@ -51,36 +51,75 @@
   border-width: 0.5px;
   cursor: pointer;
   background-color: rgba(136, 136, 136, 0.5);
+  img{
+    border-radius: 99px;
+    object-fit: cover;
+  }
 }
 .description {
   padding-right: 10px;
-  a{
+  a {
     color: var(--bluelight-color);
     font-weight: 600;
     cursor: pointer;
-    &:last-child{
+    &:last-child {
       color: var(--text-color);
     }
-    &:hover{
-        text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
-.address-music{
-    margin-top: 10px;
-    a{
-        color: var(--text-color);
-    }
+.address-music {
+  margin-top: 10px;
+  a {
+    color: var(--text-color);
+  }
 }
-.box-video{
+.box-video {
+  position: relative;
   margin-top: 15px;
-  width: 65%;
-  height: calc(450px + ((100vw - 768px) / 1152) * 200);
-  background-color: var(--text-color);
+  display: flex;
+  gap: 20px;
+  // width: 65%;
+  // height: calc(450px + ((100vw - 768px) / 1152) * 200);
+  // background-color: var(--text-color);
   border-radius: 10px;
-  video{
-    width: 100%;
-    height: 100%;
-    object-fit: revert;
+  .video{
+    position: relative;
+    cursor: pointer;
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: revert;
+      border-radius: 10px;
+    }
+    .control-play{
+      position: absolute;
+      left: 25px;
+      bottom: 35px;
+      color: var(--white);
+      z-index: 100;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    &:hover .control-play{
+      opacity: 1;
+    }
+  }  
+}
+
+.actions{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  .numbers{
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+    color: var(--gray-color);
   }
 }

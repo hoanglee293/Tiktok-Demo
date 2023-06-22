@@ -5,16 +5,17 @@ import Button from "../../Button";
 import Popper from "../../Popper";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AvatarDefault from "../../../assets/images/avatar-default.jpeg"
+
 
 const cx = classNames.bind(styles);
-function ModalPreview() {
+function ModalPreview({data}) {
   return (
     <Popper>
       <div className={cx("wrapper")}>
         <div className={cx("header")}>
           <img
-            src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1686398400&x-signature=GAChPbRzOzO5zp19Yti%2F6M9FJ2E%3D"
-            alt=""
+            src={data?.avatar === "https://files.fullstack.edu.vn/f8-tiktok/" ? AvatarDefault : data?.avatar} alt=""
           />
           <Button primary medium>
             Follow
@@ -22,14 +23,14 @@ function ModalPreview() {
         </div>
         <div className={cx("info")}>
           <h4 className={cx("id")}>
-            theanh28entertainment&nbsp;
-            <FontAwesomeIcon icon={faCheckCircle} className={cx("check")} />
+            {data?.nickname}&nbsp;
+            {!!data?.tick && <FontAwesomeIcon icon={faCheckCircle} className={cx("check")} />}
           </h4>
-          <span className={cx("name")}>Theanh28 Entertainment</span>
+          <span className={cx("name")}>{`${data?.first_name} ${data?.last_name}`}</span>
         </div>
         <div className={cx("interact")}>
-          <div><span>9.2M</span>Follower</div>
-          <div><span>700M</span>Likes</div>
+          <div><span>{data?.followers_count}</span>Follower</div>
+          <div><span>{data?.likes_count}</span>Likes</div>
         </div>
       </div>
     </Popper>

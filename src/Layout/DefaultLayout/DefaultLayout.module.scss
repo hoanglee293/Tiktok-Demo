@@ -28,6 +28,7 @@
 }
 .content{
     min-width: 420px;
+    margin-top: 16px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -43,4 +44,5 @@
     -ms-flex-direction: column;
     flex-direction: column;
     position: relative;
+    justify-content: center;
 }

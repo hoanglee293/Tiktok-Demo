@@ -47,38 +47,54 @@
   }
 }
 
-.rounded {
-  border-radius: 50px;
-  transform: none;
-  text-align: center;
-  white-space: nowrap;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(22, 24, 35, 0.12);
-  background-color: rgba(255, 255, 255, 1);
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0.14, 0.3, 1);
-  transition: transform 0.3s cubic-bezier(0.4, 0.14, 0.3, 1);
-  transform-origin: right bottom;
-  font-weight: 700;
-  color: rgba(22, 24, 35, 0.75);
-  font-family: Arial, Tahoma, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  position: relative;
-  right: 0;
-  bottom: 0;
-  padding: 0 8px;
-  min-width: 90px;
-  height: 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  border-radius: 52px;
-  cursor: pointer;
-  line-height: 30px;
-  text-align: center;
-  &:hover {
-    border-color: rgba(22, 24, 35, 0.2);
-    background-color: rgba(255, 255, 255, 1);
-  }
+// .rounded {
+//   border-radius: 50px;
+//   transform: none;
+//   text-align: center;
+//   white-space: nowrap;
+//   border-width: 1px;
+//   border-style: solid;
+//   border-color: rgba(22, 24, 35, 0.12);
+//   background-color: rgba(255, 255, 255, 1);
+//   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0.14, 0.3, 1);
+//   transition: transform 0.3s cubic-bezier(0.4, 0.14, 0.3, 1);
+//   transform-origin: right bottom;
+//   font-weight: 700;
+//   color: rgba(22, 24, 35, 0.75);
+//   font-family: Arial, Tahoma, sans-serif;
+//   font-size: 14px;
+//   line-height: 20px;
+//   position: relative;
+//   right: 0;
+//   bottom: 0;
+//   padding: 0 8px;
+//   min-width: 90px;
+//   height: 32px;
+//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+//   border-radius: 52px;
+//   cursor: pointer;
+//   line-height: 30px;
+//   text-align: center;
+//   &:hover {
+//     border-color: rgba(22, 24, 35, 0.2);
+//     background-color: rgba(255, 255, 255, 1);
+//   }
+// }
+
+.rounded{
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out 0s;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  background-color: var(--bg-gray);
 }
 
 .darktext {
