@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as FollowNotLogin from "../../services/FollowingNotLogin";
 import classNames from "classnames/bind";
 import styles from "./Following.module.scss";
@@ -13,6 +13,8 @@ function Following() {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const videoRef = useRef()
   
   useEffect(() => {
     const fetchApi = async () => {
@@ -35,6 +37,8 @@ function Following() {
       setPage((page) => page + 1);
     }
   }
+
+  
   return (
     <>
       <div className={cx("wrapper")}>
@@ -42,12 +46,13 @@ function Following() {
           {data.map((ele, index) => (
             <li key={index}>
               <video
+                ref={videoRef}
                 muted
                 loop
                 onMouseOver={(e) => e.target.play()}
-                onMouseOut={(e) => e.target.load()}
+                onMouseOut={(e) =>{ e.target.load()}}
               >
-                <source src={ele.popular_video.file_url} type="video/mp4" />
+                <source ref={videoRef} src={ele.popular_video.file_url} type="video/mp4" />
               </video>
               <img src={ele.popular_video.thumb_url} alt="" className={cx("img-position")}/>
               <div className={cx("info")}>

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookmark,
   faCheckCircle,
+  faCommentDots,
   faHeart,
   faMusic,
   faPause,
@@ -21,6 +22,9 @@ function BoxUser({ data, mute, volume, adjustVolume, toggleMuted }) {
   const cx = classNames.bind(styles);
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef();
+  
+  
+  
 
   useEffect(() => {
     if (mute) {
@@ -38,7 +42,6 @@ function BoxUser({ data, mute, volume, adjustVolume, toggleMuted }) {
     videoRef.current.pause();
     setIsPlaying(false);
   };
-
   const togglePlayVideo = () => {
     if (isPlaying === false) {
       playVideo();
@@ -153,7 +156,7 @@ function BoxUser({ data, mute, volume, adjustVolume, toggleMuted }) {
             </div>
             <div className={cx("action-btn")}>
               <Button rounded>
-                <FontAwesomeIcon icon={faHeart} />
+                <FontAwesomeIcon icon={faCommentDots} />
               </Button>
               <p className={cx("numbers")}>{data?.comments_count}</p>
             </div>

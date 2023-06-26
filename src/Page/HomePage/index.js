@@ -1,51 +1,52 @@
 import React, { useEffect, useState } from "react";
 import BoxUser from "../../component/BoxUser";
 import * as ListContent from "../../services/listContent";
-import Loading from '../../component/Loading'
+import Loading from "../../component/Loading";
 import classNames from "classnames/bind";
-import styles from './HomePage.module.scss'
+import styles from "./HomePage.module.scss";
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 function HomePage() {
-  const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(1)
-  const [videos, setVideos] = useState([])
-  const [mute, setMute] = useState(true)
-  const [volume, setVolume] = useState(0.4)
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [videos, setVideos] = useState([]);
+  const [mute, setMute] = useState(true);
+  const [volume, setVolume] = useState(0.4);
 
-  useEffect(()=>{
+
+  useEffect(() => {
     const fetchAPI = async () => {
-      const result = await ListContent.loadVideo('for-you', page)
-      const data = result.data
-      
-      setVideos(prev => [...prev, ...data])
-      setLoading(false)
-   }
+      const result = await ListContent.loadVideo("for-you", page);
+      const data = result.data;
+
+      setVideos((prev) => [...prev, ...data]);
+      setLoading(false);
+    };
     fetchAPI();
-  }, [page])
+  }, [page]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-function handleScroll() {
+  function handleScroll() {
     if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
-        setLoading(true)
-        setPage(page => page + 1)
+      setLoading(true);
+      setPage((page) => page + 1);
     }
-}
+  }
 
   const toggleMuted = () => {
     if (mute) {
-        setVolume(0)
-        setMute(false)
+      setVolume(0);
+      setMute(false);
     } else {
-        setVolume(0)
-        setMute(true)
+      setVolume(0);
+      setMute(true);
     }
-}
+  };
   return (
     <>
       {videos.map((ele, index) => (
@@ -57,7 +58,11 @@ function handleScroll() {
           toggleMuted={toggleMuted}
         />
       ))}
-      {loading && <div className={cx("loading")}><Loading /></div>}
+      {loading && (
+        <div className={cx("loading")}>
+          <Loading />
+        </div>
+      )}
     </>
   );
 }

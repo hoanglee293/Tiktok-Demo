@@ -26,7 +26,7 @@ function SuggestedAccount({data}) {
         placement="bottom"
         render={renderPreview}
       >
-        <Link to={"/"} className={cx("list-item")}>
+        <Link to={`/@${data.nickname}`} className={cx("list-item")}>
           <img
             src={data?.avatar === "https://files.fullstack.edu.vn/f8-tiktok/" ? AvatarDefault : data?.avatar}
             alt=""

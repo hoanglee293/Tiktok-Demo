@@ -59,7 +59,7 @@ function Profile() {
         </div>
         <div className={cx("bio")}>{profile?.bio}</div>
         <div className={cx("external-link")}>
-          <FontAwesomeIcon icon={faLink} />
+          {profile?.website_url && <FontAwesomeIcon icon={faLink} />}
           &nbsp;
           <a href="/">{profile?.website_url}</a>
         </div>
@@ -69,7 +69,7 @@ function Profile() {
           <div className={cx("item")} key={index}>
             <div className={cx("box-video")}>
               <img src={video.thumb_url} alt="" />
-              <video loop muted onMouseOver={(e) => e.target.play()}>
+              <video loop muted onMouseOver={(e) => e.target.play()} onMouseLeave={(e)=> {e.target.load(); video.src=""}}>
                 <source src={video.file_url} type="video/mp4" />
               </video>
               <span><FontAwesomeIcon icon={faPlay}/>&ensp;{video?.views_count}</span>
