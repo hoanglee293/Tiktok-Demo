@@ -39,6 +39,7 @@ function Button({
       }
     });
   }
+  
   if (to) {
     props.to = to;
     Comp = Link;

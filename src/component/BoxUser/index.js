@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import PropTypes from "prop-types";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import HeadlessTippy from "@tippyjs/react/headless";
 import styles from "./BoxUser.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,15 +17,15 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import AvtDefault from "../../assets/images/avatar-default.jpeg";
 import ModalPreview from "../ListUser/ModalPreview";
+import { ModalContext } from "../ModalProvider";
 
 function BoxUser({ data, mute, volume, adjustVolume, toggleMuted }) {
   const cx = classNames.bind(styles);
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef();
   
+  const context = useContext(ModalContext)
   
-  
-
   useEffect(() => {
     if (mute) {
       videoRef.current.volume = 0;
@@ -42,6 +42,7 @@ function BoxUser({ data, mute, volume, adjustVolume, toggleMuted }) {
     videoRef.current.pause();
     setIsPlaying(false);
   };
+
   const togglePlayVideo = () => {
     if (isPlaying === false) {
       playVideo();
@@ -149,19 +150,19 @@ function BoxUser({ data, mute, volume, adjustVolume, toggleMuted }) {
           </div>
           <div className={cx("actions")}>
             <div className={cx("action-btn")}>
-              <Button rounded>
+              <Button rounded onClick={context.handleShowModal}>
                 <FontAwesomeIcon icon={faHeart} />
               </Button>
               <p className={cx("numbers")}>{data?.likes_count}</p>
             </div>
             <div className={cx("action-btn")}>
-              <Button rounded>
+              <Button rounded onClick={context.handleShowModal}>
                 <FontAwesomeIcon icon={faCommentDots} />
               </Button>
               <p className={cx("numbers")}>{data?.comments_count}</p>
             </div>
             <div className={cx("action-btn")}>
-              <Button rounded>
+              <Button rounded onClick={context.handleShowModal}>
                 <FontAwesomeIcon icon={faBookmark} />
               </Button>
               <p className={cx("numbers")}>{data?.comments_count}</p>
@@ -169,7 +170,7 @@ function BoxUser({ data, mute, volume, adjustVolume, toggleMuted }) {
           </div>
         </div>
       </div>
-      <Button outline small>
+      <Button outline small onClick={context.handleShowModal}>
         Follow
       </Button>
     </div>

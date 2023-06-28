@@ -15,6 +15,7 @@ function HomePage() {
   const [volume, setVolume] = useState(0.4);
 
 
+
   useEffect(() => {
     const fetchAPI = async () => {
       const result = await ListContent.loadVideo("for-you", page);
@@ -47,6 +48,7 @@ function HomePage() {
       setMute(true);
     }
   };
+  
   return (
     <>
       {videos.map((ele, index) => (

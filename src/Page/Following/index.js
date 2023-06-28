@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import * as FollowNotLogin from "../../services/FollowingNotLogin";
 import classNames from "classnames/bind";
 import styles from "./Following.module.scss";
@@ -7,6 +7,7 @@ import Loading from "../../component/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import AvatarDefault from '../../assets/images/avatar-default.jpeg'
+import { ModalContext } from "../../component/ModalProvider";
 
 const cx = classNames.bind(styles);
 function Following() {
@@ -15,7 +16,7 @@ function Following() {
   const [loading, setLoading] = useState(true);
 
   const videoRef = useRef()
-  
+  const context = useContext(ModalContext)
   useEffect(() => {
     const fetchApi = async () => {
       const res = await FollowNotLogin.FollowNotLogin(page);
@@ -67,7 +68,7 @@ function Following() {
                   <FontAwesomeIcon icon={faCheckCircle} className={cx("check")} />
                 )}
                 </span>
-                <Button primary>Folow</Button>
+                <Button primary onClick={context.handleShowModal}>Folow</Button>
               </div>
             </li>
           ))}

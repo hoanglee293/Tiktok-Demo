@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react";
 import 'tippy.js/dist/tippy.css'; 
@@ -22,8 +22,8 @@ import Search from "../../Search";
 import Button from "../../../component/Button";
 import MenuBox from "../../Menu";
 import { LogoSvg, MessageSvg, Notify } from "../../../assets/svg";
-import LoginModal from "../../../component/ModalAuth";
 import AvtDefault from "../../../assets/images/avatar-default.jpeg";
+import { ModalContext } from "../../../component/ModalProvider";
 
 
 const items = [
@@ -116,9 +116,9 @@ const cx = classNames.bind(styles);
 
 function Header() {
   const [auth, setAuth] = useState(false)
-  const [isLogin, setIsLogin] = useState(false)
   const avtUrl = ""
   
+  const context = useContext(ModalContext)
   return (
     <header>
       <div className={cx("wrapper")}>
@@ -154,7 +154,7 @@ function Header() {
               <Button darktext to="/">
                 + Upload
               </Button>
-              <Button primary onClick={() => setIsLogin(true)}>
+              <Button primary onClick={context.handleShowModal}>
                 Log in
               </Button>
             </>
@@ -174,14 +174,6 @@ function Header() {
           </MenuBox>
         </div>
       </div>
-      {isLogin && (
-        <>
-          <div className={cx("overlay")} onClick={() => setIsLogin(false)}>
-            &ensp;
-          </div>
-          <LoginModal isAuth={setAuth} />
-        </>
-      )}
     </header>
   );
 }

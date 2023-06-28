@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './component/GolbalStyle/GolbalStyle.scss'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ModalProvider } from './component/ModalProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ModalProvider>
     <App />
+    </ModalProvider>
   </React.StrictMode>
 );
 
