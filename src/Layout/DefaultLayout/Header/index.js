@@ -151,7 +151,7 @@ function Header() {
             </>
           ) : (
             <>
-              <Button darktext to="/">
+              <Button darktext to="/" onClick={context.handleShowModal}>
                 + Upload
               </Button>
               <Button primary onClick={context.handleShowModal}>
