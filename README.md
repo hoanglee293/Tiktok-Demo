@@ -1,2 +1,5 @@
-# Tiktok-Demo
-# Tiktok-Demo
+# Tiktok-Demo (Not Login)
+- Chức năng:  
+  - Search
+  - HomePage
+    
